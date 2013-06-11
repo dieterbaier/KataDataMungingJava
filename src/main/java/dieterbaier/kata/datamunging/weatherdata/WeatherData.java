@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package de.novatec.db.kata.datamunging.weatherdata;
+package dieterbaier.kata.datamunging.weatherdata;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,7 +11,7 @@ import java.util.List;
 
 /**
  <p/>
- @author novatec
+ @author Dieter Baier
  */
 public class WeatherData {
 
@@ -24,9 +20,9 @@ public class WeatherData {
   private int minSpread = Integer.MAX_VALUE;
   private final WeatherDataParser parser = new WeatherDataParser ();
 
-  public int getDayWithMinimumSpread (String filename) {
+  public int getDayWithMinimumSpread (final String filename) {
     this.filename = filename;
-    List<String> dataLines = parser.getDataLines (
+    final List<String> dataLines = parser.getDataLines (
 	    readAllData ());
     if (dataLines.size () <= 0) {
       throw new IllegalFileException ();
@@ -51,7 +47,7 @@ public class WeatherData {
 
   private URI loadFromClasspath () {
     try {
-      URL resource = this.getClass ().getClassLoader ().getResource (
+      final URL resource = this.getClass ().getClassLoader ().getResource (
 	      filename);
       if (resource == null) {
 	throw new IOException (filename + " not available.");
@@ -66,8 +62,8 @@ public class WeatherData {
     return Charset.defaultCharset ();
   }
 
-  private boolean isTempSpreadSmaller (String line) {
-    int spread = parser.getTempSpread (line);
+  private boolean isTempSpreadSmaller (final String line) {
+    final int spread = parser.getTempSpread (line);
     if (spread >= minSpread) {
       return false;
     }

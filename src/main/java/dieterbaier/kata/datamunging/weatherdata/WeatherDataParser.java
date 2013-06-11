@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.novatec.db.kata.datamunging.weatherdata;
+package dieterbaier.kata.datamunging.weatherdata;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +11,14 @@ import java.util.regex.Pattern;
 
 /**
  <p/>
- @author novatec
+ @author Dieter Baier
  */
 public class WeatherDataParser {
 
   private static final Pattern NUMERIC_PATTERN = Pattern.compile ("^[\\d]");
 
   List<String> getDataLines (final List<String> lines) {
-    List<String> dataLines = new ArrayList<String> (0);
+    final List<String> dataLines = new ArrayList<String> (0);
     for (String line : lines) {
       if (isDataLine (line)) {
 	dataLines.add (line);
@@ -67,8 +67,8 @@ public class WeatherDataParser {
 
   private String getField (final String line,
 			   final int fieldIndex) {
-    StringTokenizer st = new StringTokenizer (line,
-					      " *");
+    final StringTokenizer st = new StringTokenizer (line,
+						    " *");
     if (st.countTokens () > fieldIndex) {
       int i = 1;
       while (st.hasMoreTokens ()) {
