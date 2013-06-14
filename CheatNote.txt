@@ -1,0 +1,3 @@
+- Für das Einlesen eines Files verwenden wir das java.nio.file-Package
+- Wir können davon ausgehen, dass das einzulesende File im Classpath liegt
+- Um harauszufinden, ob ein Wert numerisch ist, soll die RegEx '^[\d]' verwendet werden
