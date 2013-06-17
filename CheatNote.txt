@@ -1,3 +1,32 @@
 - Für das Einlesen eines Files verwenden wir das java.nio.file-Package
 - Wir können davon ausgehen, dass das einzulesende File im Classpath liegt
 - Um harauszufinden, ob ein Wert numerisch ist, soll die RegEx '^[\d]' verwendet werden
+
+Maven-Einstellungen:
+
+<dependencies>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
