@@ -1,9 +1,5 @@
 package dieterbaier.kata;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -38,7 +34,7 @@ public class WeatherData {
 
   private List<String> getDataLines(final String fileName) {
     final List<String> dataLines = new ArrayList<>();
-    for (final String line : readFile(fileName))
+    for (final String line : FileReader.readFile(fileName))
       if (isDataLine(line))
         dataLines.add(line);
     return dataLines;
@@ -62,18 +58,6 @@ public class WeatherData {
             + "{0,1}" + "]" + "{2}")
         .matcher(line);
     return parser.find();
-  }
-
-  private List<String> readFile(final String fileName) {
-    List<String> allLines = null;
-    try {
-      allLines = Files.readAllLines(
-          Paths.get(FileReader.getFromClasspath(fileName)), Charset.defaultCharset());
-    }
-    catch (final IOException e) {
-      throw new RuntimeException(e);
-    }
-    return allLines;
   }
 
 }
